@@ -1,0 +1,37 @@
+{% extends 'Shop/base.html' %}
+
+{% block title %}
+    Добавление Продукта
+{% endblock %}
+
+
+{% block content %}
+    <form method="post" class="container text-light mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">name</label>
+            {{ form.first_name }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">manufacturer</label>
+            {{ form.last_name }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">weight</label>
+            {{ form.middle_name }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">price</label>
+            {{ form.email }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">price</label>
+            {{ form.phone_number }}
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+{% endblock %}

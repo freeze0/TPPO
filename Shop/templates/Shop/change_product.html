@@ -1,0 +1,33 @@
+{% extends 'Shop/base.html' %}
+
+{% block title %}
+    Изменение данных продукта
+{% endblock %}
+
+
+{% block content %}
+    <form method="post" class="container text-light mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">name</label>
+            {{ form.name }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">manufacturer</label>
+            {{ form.manufacturer }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">weight</label>
+            {{ form.weight }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">price</label>
+            {{ form.price }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Изменить</button>
+    </form>
+{% endblock %}

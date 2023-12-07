@@ -1,0 +1,65 @@
+{% extends 'Shop/base.html' %}
+
+{% block title %}
+    Магазин - Главная страница
+{% endblock %}
+
+
+{% block content %}
+    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center">
+        <span style="font-size: 25px; background-color: #F3F5F6; padding: 0 10px;">
+            Продукты
+        </span>
+    </div>
+    <div class="container">
+        {% for i in products %}
+            <div class="alert alert-secondary shadow-lg  mt-4">
+                <h3> {{ i.name }} {{ i.manufacturer }}</h3>
+                <p> Вес: {{ i.weight }}</p>
+                <p> Цена: {{ i.price }}</p>
+                <a href="{% url 'Shop:change' i.id %}" class="btn btn-outline-dark">Редактировать</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center">
+        <span style="font-size: 25px; background-color: #F3F5F6; padding: 0 10px;">
+            Клиенты
+        </span>
+    </div>
+    <div class="container">
+        {% for i in clients %}
+            <div class="alert alert-secondary shadow-lg  mt-4">
+                <h3> {{ i.first_name }} {{ i.last_name }}</h3>
+                <p> Номер: {{ i.phone_number }}</p>
+                <p> mail: {{ i.email }}</p>
+                <a href="{% url 'Shop:change' i.id %}" class="btn btn-outline-dark">Редактировать</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center">
+        <span style="font-size: 25px; background-color: #F3F5F6; padding: 0 10px;">
+            Заказы
+        </span>
+    </div>
+    <div class="container">
+        {% for i in orders %}
+            <div class="alert alert-secondary shadow-lg  mt-4">
+                <h3> Заказ: {{ i.product }} {{ i.client }} {{ i.quantity }}</h3>
+                <h3> Конечная сумма: {{ i.total_price }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center">
+        <span style="font-size: 25px; background-color: #F3F5F6; padding: 0 10px;">
+            Количество продуктов
+        </span>
+    </div>
+    <div class="container">
+        {% for i in availableproducts %}
+            <div class="alert alert-secondary shadow-lg  mt-4">
+                <h3> Продукт: {{ i.product }} </h3>
+                <h3> Количество: {{ i.quantity }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
