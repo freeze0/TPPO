@@ -1,14 +1,14 @@
 {% extends 'Shop/base.html' %}
 
 {% block title %}
-    Добавление Покупателя
+    Добавление Продукта
 {% endblock %}
 
 
 {% block content %}
     <form method="post" class="container text-light mt-4">
         {% csrf_token %}
-        {{form.as_p}}
+         {{form.as_p}}
         <button type="submit" class="btn btn-primary">Добавить</button>
     </form>
 {% endblock %}

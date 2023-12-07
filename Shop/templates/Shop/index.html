@@ -17,7 +17,7 @@
                 <h3> {{ i.name }} {{ i.manufacturer }}</h3>
                 <p> Вес: {{ i.weight }}</p>
                 <p> Цена: {{ i.price }}</p>
-                <a href="{% url 'Shop:change' i.id %}" class="btn btn-outline-dark">Редактировать</a>
+                <a href="{% url 'Shop:change_pr' i.id %}" class="btn btn-outline-dark">Редактировать</a>
             </div>
         {% endfor %}
     </div>
@@ -32,7 +32,7 @@
                 <h3> {{ i.first_name }} {{ i.last_name }}</h3>
                 <p> Номер: {{ i.phone_number }}</p>
                 <p> mail: {{ i.email }}</p>
-                <a href="{% url 'Shop:change' i.id %}" class="btn btn-outline-dark">Редактировать</a>
+                <a href="{% url 'Shop:change_cl' i.id %}" class="btn btn-outline-dark">Редактировать</a>
             </div>
         {% endfor %}
     </div>

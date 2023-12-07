@@ -3,7 +3,7 @@ from django.views.generic import UpdateView
 from django.urls import reverse
 from .models import *
 from Shop.forms import ProductForm
-from Shop.forms import CostumerForm
+from Shop.forms import ClientForm
 
 
 def index(request):
@@ -26,7 +26,7 @@ def create_product(request):
     context = {
         'form': form
     }
-    return render(request, "Shop/create_product.html", context)
+    return render(request, "Shop/create_client.html", context)
 
 def edit_product(request, pk):
     product = get_object_or_404(Product, pk=pk)
@@ -39,29 +39,29 @@ def edit_product(request, pk):
         form = ProductForm(instance=product)
     return render(request, 'Shop/change_product.html', {'form': form})
 
-def create_costumer(request):
+def create_client(request):
     if request.method == 'POST':
-        form = CostumerForm(request.POST)
+        form = ClientForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('Shop:home'))
 
-    form = CostumerForm()
+    form = ClientForm()
     context = {
         'form': form
     }
-    return render(request, "Shop/create_costumer.html", context)
+    return render(request, "Shop/create_product.html", context)
 
-def edit_costumer(request, pk):
-    costumer = get_object_or_404(Client, pk=pk)
+def edit_client(request, pk):
+    client = get_object_or_404(Client, pk=pk)
     if request.method == 'POST':
-        form = CostumerForm(request.POST, instance=costumer)
+        form = ClientForm(request.POST, instance=client)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('Shop:home'))
     else:
-        form = CostumerForm(instance=costumer)
-    return render(request, 'Shop/change_costumer.html', {'form': form})
+        form = ClientForm(instance=client)
+    return render(request, 'Shop/change_client.html', {'form': form})
 
 # class change_product(UpdateView):
 #     model = Product
